@@ -42,6 +42,23 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function scorer(playerScore, computerScore) {
+  let scores = `playerScore = ${playerScore}\ncomputerScore = ${computerScore}`;
+  return scores;
+}
+
+function whoIsWinner(playerScore, computerScore) {
+  let winner;
+  if (playerScore > computerScore) {
+    winner = `The player wins the game!`
+  } else if (playerScore < computerScore) {
+    winner = `The computer wins the game!`
+  } else {
+    winner = `It's a tie!`
+  }
+  return winner;
+}
+
 function game() {
   console.log(welcome);
   alert(welcome);
@@ -78,3 +95,12 @@ function game() {
   alert(winner);
 
 }
+
+let welcome = `Welcome to Rock, Paper, Scissors!`;
+let note =
+`Note:
+There will be 5 rounds. Entering something 
+other than the three choices means that you
+concede on that round.`;
+
+game();
