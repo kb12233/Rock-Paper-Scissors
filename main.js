@@ -62,11 +62,14 @@ function whoIsWinner(playerScore, computerScore) {
 function game() {
   console.log(welcome);
   alert(welcome);
+
   console.log(note);
   alert(note);
+
   let playerScore = 0;
   let computerScore = 0;
   let winner;
+
   for (let round = 1; round <= 5; round++) {
     let player = userPlay();
     if (player == `Bye bye!`) {
@@ -76,8 +79,9 @@ function game() {
 
     let computer = computerPlay();
     let result = playRound(player, computer);
-    console.log(result);
-    alert(result);
+
+    console.log(`Player: ${player} \nComputer: ${computer} \n\n${result}`);
+    alert(`Player: ${player} \nComputer: ${computer} \n\n${result}`);
 
     if (result[4] == `w`) {
       playerScore++;
@@ -88,7 +92,7 @@ function game() {
     console.log(`Round ${round} of 5\n` + scorer(playerScore, computerScore));
     alert(`Round ${round} of 5\n` + scorer(playerScore, computerScore));
   }
-  
+
   winner = whoIsWinner(playerScore, computerScore);
 
   console.log(winner);
@@ -98,9 +102,10 @@ function game() {
 
 let welcome = `Welcome to Rock, Paper, Scissors!`;
 let note =
-`Note:
+  `Note:
 There will be 5 rounds. Entering something 
-other than the three choices means that you
-concede on that round.`;
+other than the three choices (E.g. "qwerty", 
+"asdf" or "paper " with a space) means that
+you concede on that round.`;
 
 game();
