@@ -41,3 +41,40 @@ function playRound(playerSelection, computerSelection) {
     return `You lose! You chose to concede in this round.`;
   }
 }
+
+function game() {
+  console.log(welcome);
+  alert(welcome);
+  console.log(note);
+  alert(note);
+  let playerScore = 0;
+  let computerScore = 0;
+  let winner;
+  for (let round = 1; round <= 5; round++) {
+    let player = userPlay();
+    if (player == `Bye bye!`) {
+      alert(`Bye bye!`);
+      return;
+    }
+
+    let computer = computerPlay();
+    let result = playRound(player, computer);
+    console.log(result);
+    alert(result);
+
+    if (result[4] == `w`) {
+      playerScore++;
+    } else if (result[4] == `l`) {
+      computerScore++;
+    }
+
+    console.log(`Round ${round} of 5\n` + scorer(playerScore, computerScore));
+    alert(`Round ${round} of 5\n` + scorer(playerScore, computerScore));
+  }
+  
+  winner = whoIsWinner(playerScore, computerScore);
+
+  console.log(winner);
+  alert(winner);
+
+}
