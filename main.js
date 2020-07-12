@@ -13,12 +13,16 @@ resetButton.addEventListener(`click`, reset);
 buttons.forEach((button) => {
     button.addEventListener(`click`, function() {
         
-        playerChoice.textContent = userPlay(button.id);
-        computerChoice.textContent = computerPlay();
-        result.textContent = playRound(playerChoice.textContent, computerChoice.textContent);
-        pScoreDisplayed.textContent = playerScore;
-        cScoreDisplayed.textContent = computerScore;
-        winner.textContent = whoIsWinner(playerScore, computerScore);
+        if (playerScore == 5 || computerScore == 5) {
+            return;
+        } else {
+            playerChoice.textContent = userPlay(button.id);
+            computerChoice.textContent = computerPlay();
+            result.textContent = playRound(playerChoice.textContent, computerChoice.textContent);
+            pScoreDisplayed.textContent = playerScore;
+            cScoreDisplayed.textContent = computerScore;
+            winner.textContent = whoIsWinner(playerScore, computerScore);
+        }
 
     });
 });
